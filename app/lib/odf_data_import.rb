@@ -6,4 +6,8 @@ class OdfDataImport
   def data
     @data
   end
+
+  def state_forests
+    @data.collect { |row| row["state_forest"] }.uniq
+  end
 end

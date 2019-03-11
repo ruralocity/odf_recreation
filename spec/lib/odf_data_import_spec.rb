@@ -28,4 +28,13 @@ describe "ODF data import" do
       }
     )
   end
+
+  it "gathers a list of state forests" do
+    data = OdfDataImport.new
+    expect(data.state_forests).to eq [
+      "Tillamook",
+      "Clatsop",
+      "Santiam",
+    ]
+  end
 end
