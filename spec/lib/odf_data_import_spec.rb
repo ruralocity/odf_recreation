@@ -37,4 +37,14 @@ describe "ODF data import" do
       "Santiam",
     ]
   end
+
+  it "gathers a list of districts" do
+    data = OdfDataImport.new
+    expect(data.districts).to eq [
+      "Forest Grove",
+      "Astoria",
+      "Tillamook",
+      "North Cascade",
+    ]
+  end
 end
