@@ -1,2 +1,2 @@
-rails: bin/rails s
+rails: bin/rails s -p 3000
 postgres: postgres -D vendor/postgresql
