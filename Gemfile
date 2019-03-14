@@ -69,5 +69,3 @@ end
 group :development do
   gem 'spring-commands-rspec'
 end
-
-gem 'rails_12factor'
