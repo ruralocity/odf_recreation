@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_14_023713) do
+ActiveRecord::Schema.define(version: 2019_03_14_035929) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,25 @@ ActiveRecord::Schema.define(version: 2019_03_14_023713) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "opportunities", force: :cascade do |t|
+    t.string "name"
+    t.integer "computed_region"
+    t.string "amenities"
+    t.string "contact_number"
+    t.string "description"
+    t.bigint "district_id"
+    t.float "latitude"
+    t.float "longitude"
+    t.string "number_of_sites"
+    t.string "overnight_fee"
+    t.string "season"
+    t.bigint "state_forest_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["district_id"], name: "index_opportunities_on_district_id"
+    t.index ["state_forest_id"], name: "index_opportunities_on_state_forest_id"
   end
 
   create_table "state_forests", force: :cascade do |t|
@@ -33,4 +52,6 @@ ActiveRecord::Schema.define(version: 2019_03_14_023713) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "opportunities", "districts"
+  add_foreign_key "opportunities", "state_forests"
 end
