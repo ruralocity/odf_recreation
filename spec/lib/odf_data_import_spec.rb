@@ -34,9 +34,13 @@ describe "ODF data import" do
 
     forest_grove_district = District.find_by(name: "Forest Grove")
     tillamook_state_forest = StateForest.find_by(name: "Tillamook")
+    hiking = Type.find_by(name: "Hike")
+    day_use = Type.find_by(name: "Day Use")
 
     expect(Opportunity.count).to eq 63
-    expect(Opportunity.first).to have_attributes(
+
+    opportunity = Opportunity.first
+    expect(opportunity).to have_attributes(
       computed_region: 2412,
       amenities: "restrooms; picnic tables",
       contact_number: "503-815-6800",
@@ -49,8 +53,9 @@ describe "ODF data import" do
       overnight_fee: "N/A",
       season: "March - November",
       state_forest: tillamook_state_forest,
-      # type: "Hike, Day Use",
     )
+    expect(opportunity.types).to include hiking
+    expect(opportunity.types).to include day_use
   end
 
   it "gathers a list of state forests" do

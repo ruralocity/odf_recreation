@@ -14,7 +14,7 @@ class OdfDataImport
   end
 
   def import_opportunity(attributes)
-    Opportunity.create do |opp|
+    opportunity = Opportunity.create do |opp|
       opp.name = attributes["name"]
       opp.computed_region = attributes[':@computed_region_i25a_xk5b'].to_i
       opp.amenities = attributes["amentities"] # sic
@@ -29,6 +29,7 @@ class OdfDataImport
       opp.state_forest = \
         StateForest.find_or_create_by(name: attributes["state_forest"])
     end
+    import_types(opportunity, types: attributes["type"])
   end
 
   def state_forests
@@ -37,5 +38,14 @@ class OdfDataImport
 
   def districts
     @data.collect { |row| row["district"] }.uniq
+  end
+
+  private
+
+  def import_types(opportunity, types: "")
+    types = types.split(",").collect(&:strip).uniq
+    types.each do |type|
+      opportunity.types << Type.find_or_create_by(name: type)
+    end
   end
 end

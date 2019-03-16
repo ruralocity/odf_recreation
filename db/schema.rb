@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_14_035929) do
+ActiveRecord::Schema.define(version: 2019_03_16_050736) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,15 @@ ActiveRecord::Schema.define(version: 2019_03_14_035929) do
     t.index ["state_forest_id"], name: "index_opportunities_on_state_forest_id"
   end
 
+  create_table "opportunity_types", force: :cascade do |t|
+    t.bigint "opportunity_id"
+    t.bigint "type_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["opportunity_id"], name: "index_opportunity_types_on_opportunity_id"
+    t.index ["type_id"], name: "index_opportunity_types_on_type_id"
+  end
+
   create_table "state_forests", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -54,4 +63,6 @@ ActiveRecord::Schema.define(version: 2019_03_14_035929) do
 
   add_foreign_key "opportunities", "districts"
   add_foreign_key "opportunities", "state_forests"
+  add_foreign_key "opportunity_types", "opportunities"
+  add_foreign_key "opportunity_types", "types"
 end
