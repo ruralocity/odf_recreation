@@ -2,12 +2,18 @@ require "spec_helper"
 
 describe "ODF data import" do
   it "finds 63 records" do
-    data = OdfDataImport.new.data
+    # The data method is now private; just keeping this test around for a
+    # bit longer since it's a convenient way to confirm the JSON parsing
+    # step is working ahead of the actual import.
+    data = OdfDataImport.new.send(:data)
     expect(data.length).to eq 63
   end
 
   it "parses an individual record" do
-    data = OdfDataImport.new.data
+    # The data method is now private; just keeping this test around for a
+    # bit longer since it's a convenient way to confirm the JSON parsing
+    # step is working ahead of the actual import.
+    data = OdfDataImport.new.send(:data)
     expect(data.first).to eq(
       {
         ":@computed_region_i25a_xk5b" => "2412",
@@ -60,24 +66,5 @@ describe "ODF data import" do
     )
     expect(opportunity.types).to include hiking
     expect(opportunity.types).to include day_use
-  end
-
-  it "gathers a list of state forests" do
-    data = OdfDataImport.new
-    expect(data.state_forests).to eq [
-      "Tillamook",
-      "Clatsop",
-      "Santiam",
-    ]
-  end
-
-  it "gathers a list of districts" do
-    data = OdfDataImport.new
-    expect(data.districts).to eq [
-      "Forest Grove",
-      "Astoria",
-      "Tillamook",
-      "North Cascade",
-    ]
   end
 end

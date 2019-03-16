@@ -9,6 +9,8 @@ class OdfDataImport
     end
   end
 
+  private
+
   def data
     @data
   end
@@ -31,16 +33,6 @@ class OdfDataImport
     end
     import_types(opportunity, types: attributes["type"])
   end
-
-  def state_forests
-    @data.collect { |row| row["state_forest"] }.uniq
-  end
-
-  def districts
-    @data.collect { |row| row["district"] }.uniq
-  end
-
-  private
 
   def import_types(opportunity, types: "")
     types = types.split(",").collect(&:strip).uniq
