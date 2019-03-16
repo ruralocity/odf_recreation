@@ -29,8 +29,12 @@ describe "ODF data import" do
     )
   end
 
-  it "imports opportunities" do
+  it "imports all data" do
     OdfDataImport.new.import
+
+    expect(District.count).to eq 4
+    expect(StateForest.count).to eq 3
+    expect(Type.count).to eq 9
 
     forest_grove_district = District.find_by(name: "Forest Grove")
     tillamook_state_forest = StateForest.find_by(name: "Tillamook")
