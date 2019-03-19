@@ -1,0 +1,29 @@
+<h2><%= opportunity.name %></h2>
+<dl>
+  <dt>State forest</dt>
+  <dd><%= opportunity.state_forest.name %></dd>
+  <dt>Recreation types</dt>
+  <dd><%= opportunity.types.pluck(:name).join(", ") %></dd>
+  <dt>Season</dt>
+  <dd><%= opportunity.season %></dd>
+  <dt>Description</dt>
+  <dd><%= opportunity.description %></dd>
+  <dt>Amenities</dt>
+  <dd><%= opportunity.amenities %></dd>
+</dl>
+
+<h3>Camping information</h3>
+<dl>
+  <dt>Number of sites</dt>
+  <dd><%= opportunity.number_of_sites %></dd>
+  <dt>Overnight fee</dt>
+  <dd><%= opportunity.overnight_fee %></dd>
+</dl>
+
+<h3>Contact</h3>
+<dl>
+  <dt>District</dt>
+  <dd><%= opportunity.district.name %></dd>
+  <dt>Phone</dt>
+  <dd><%= opportunity.contact_number %></dd>
+</dl>
