@@ -18,6 +18,8 @@ me, but I'm open to collaboration if interest arises.
   - Server-rendered UI to start, front-end app later
 - Add geocoding/search by distance
 - Add a map view
+- Parse availability date ranges provided in dataset, so they can be used
+  to filter by date
 - Include images of opportunities/state forests, based on location data, as
   available through public domain/Creative Commons
 - Handle data updates (the importer is currently create-only), can be
