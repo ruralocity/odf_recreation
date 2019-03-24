@@ -7,4 +7,10 @@ class Opportunity < ApplicationRecord
   validates :name,
     presence: true,
     uniqueness: true
+
+  scope :by_state_forest, ->(state_forest_ids) {
+    unless state_forest_ids.nil?
+      where(state_forest_id: state_forest_ids)
+    end
+  }
 end
