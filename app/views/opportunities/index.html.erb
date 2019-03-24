@@ -1,1 +1,9 @@
-<%= render @opportunities %>
+<div class="row">
+  <div class="col-3">
+    <%= render partial: "filters" %>
+  </div>
+
+  <div class="col-9">
+    <%= render @opportunities %>
+  </div>
+</div>
