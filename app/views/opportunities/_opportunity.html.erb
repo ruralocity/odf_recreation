@@ -6,30 +6,39 @@
       <%= opportunity.description %>
     </div>
     <div class="card-text">
-      <dl>
-        <dt>Recreation types</dt>
-        <dd><%= opportunity.types.pluck(:name).join(", ") %></dd>
-        <dt>Season</dt>
-        <dd><%= opportunity.season %></dd>
-        <dt>Amenities</dt>
-        <dd><%= opportunity.amenities %></dd>
-      </dl>
+      <div class="row">
+        <div class="col-md-4">
+          <h4>Overview</h4>
+          <dl>
+            <dt>Recreation types</dt>
+            <dd><%= opportunity.types.pluck(:name).join(", ") %></dd>
+            <dt>Season</dt>
+            <dd><%= opportunity.season %></dd>
+            <dt>Amenities</dt>
+            <dd><%= opportunity.amenities %></dd>
+          </dl>
+        </div>
 
-      <h3>Camping information</h3>
-      <dl>
-        <dt>Number of sites</dt>
-        <dd><%= opportunity.number_of_sites %></dd>
-        <dt>Overnight fee</dt>
-        <dd><%= opportunity.overnight_fee %></dd>
-      </dl>
+        <div class="col-md-4">
+          <h4>Camping information</h4>
+          <dl>
+            <dt>Number of sites</dt>
+            <dd><%= opportunity.number_of_sites %></dd>
+            <dt>Overnight fee</dt>
+            <dd><%= opportunity.overnight_fee %></dd>
+          </dl>
+        </div>
 
-      <h3>Contact</h3>
-      <dl>
-        <dt>District</dt>
-        <dd><%= opportunity.district.name %></dd>
-        <dt>Phone</dt>
-        <dd><%= opportunity.contact_number %></dd>
-      </dl>
+        <div class="col-md-4">
+          <h4>Contact</h4>
+          <dl>
+            <dt>District</dt>
+            <dd><%= opportunity.district.name %></dd>
+            <dt>Phone</dt>
+            <dd><%= opportunity.contact_number %></dd>
+          </dl>
+        </div>
+      </div>
     </div>
   </div>
 </div>
