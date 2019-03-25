@@ -57,4 +57,14 @@ RSpec.feature "Opportunities list", type: :feature do
     expect(page).to have_selector ".card", count: 63
     expect(page).to have_content "Showing 63 opportunities"
   end
+
+  scenario "user views result with no amenities" do
+    FactoryBot.create(:opportunity, name: "First", amenities: "vending machines")
+    FactoryBot.create(:opportunity, name: "Last", amenities: nil)
+
+    visit root_path
+
+    expect(page.find(".card", text: "First")).to have_content "Amenities vending machines"
+    expect(page.find(".card", text: "Last")).to have_content "Amenities N/A"
+  end
 end
