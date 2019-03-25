@@ -18,21 +18,25 @@ RSpec.feature "Opportunities list", type: :feature do
     visit root_path
 
     expect(page).to have_selector ".card", count: 63
+    expect(page).to have_content "Showing 63 opportunities"
 
     check "Clatsop"
     click_button "Filter"
 
     expect(page).to have_selector ".card", count: 14
+    expect(page).to have_content "Showing 14 opportunities"
 
     check "Santiam"
     click_button "Filter"
 
     expect(page).to have_selector ".card", count: 23
+    expect(page).to have_content "Showing 23 opportunities"
 
     uncheck "Santiam"
     uncheck "Clatsop"
     click_button "Filter"
 
     expect(page).to have_selector ".card", count: 63
+    expect(page).to have_content "Showing 63 opportunities"
   end
 end
