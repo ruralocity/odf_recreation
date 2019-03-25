@@ -13,4 +13,10 @@ class Opportunity < ApplicationRecord
       where(state_forest_id: state_forest_ids)
     end
   }
+
+  scope :by_type, ->(type_ids) {
+    unless type_ids.nil?
+      joins(:types).where(types: { id: type_ids })
+    end
+  }
 end

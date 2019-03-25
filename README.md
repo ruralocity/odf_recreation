@@ -13,9 +13,8 @@ me, but I'm open to collaboration if interest arises.
 
 ## Future ideas
 
-- Add filtering interface to narrow results by state forest or type of
-  opportunity
-  - Server-rendered UI to start, front-end app later
+- ~~Add filtering interface to narrow results by state forest or type of
+  opportunity~~ Done!
 - Add geocoding/search by distance
 - Add a map view
 - Parse availability date ranges provided in dataset, so they can be used
@@ -26,5 +25,6 @@ me, but I'm open to collaboration if interest arises.
   deferred until updated data are available
 - Create setup script and instructions to make it easier for others to
   collaborate on this project
+- Replace filtering UI with client-side code instead of server-rendered
 
 [odf-data-source]: https://data.oregon.gov/Recreation/ODF-Recreational-Opportunities/ufw2-6prx

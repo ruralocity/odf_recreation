@@ -38,5 +38,23 @@ RSpec.feature "Opportunities list", type: :feature do
 
     expect(page).to have_selector ".card", count: 63
     expect(page).to have_content "Showing 63 opportunities"
+
+    check "Clatsop"
+    check "Hike"
+    click_button "Filter"
+
+    expect(page).to have_selector ".card", count: 10
+    expect(page).to have_content "Showing 10 opportunities"
+
+    check "Day Use"
+    click_button "Filter"
+
+    expect(page).to have_selector ".card", count: 15
+    expect(page).to have_content "Showing 15 opportunities"
+
+    click_link "Reset filters"
+
+    expect(page).to have_selector ".card", count: 63
+    expect(page).to have_content "Showing 63 opportunities"
   end
 end
