@@ -18,44 +18,44 @@ RSpec.feature "Opportunities list", type: :feature do
     visit root_path
 
     expect(page).to have_selector ".card", count: 63
-    expect(page).to have_content "Showing 63 recreation opportunities"
+    expect(page).to have_content "Showing 63 recreation activities"
 
     check "Clatsop"
     click_button "Filter"
 
     expect(page).to have_selector ".card", count: 14
-    expect(page).to have_content "Showing 14 recreation opportunities"
+    expect(page).to have_content "Showing 14 recreation activities"
 
     check "Santiam"
     click_button "Filter"
 
     expect(page).to have_selector ".card", count: 23
-    expect(page).to have_content "Showing 23 recreation opportunities"
+    expect(page).to have_content "Showing 23 recreation activities"
 
     uncheck "Santiam"
     uncheck "Clatsop"
     click_button "Filter"
 
     expect(page).to have_selector ".card", count: 63
-    expect(page).to have_content "Showing 63 recreation opportunities"
+    expect(page).to have_content "Showing 63 recreation activities"
 
     check "Clatsop"
     check "Hike"
     click_button "Filter"
 
     expect(page).to have_selector ".card", count: 10
-    expect(page).to have_content "Showing 10 recreation opportunities"
+    expect(page).to have_content "Showing 10 recreation activities"
 
     check "Day Use"
     click_button "Filter"
 
     expect(page).to have_selector ".card", count: 15
-    expect(page).to have_content "Showing 15 recreation opportunities"
+    expect(page).to have_content "Showing 15 recreation activities"
 
     click_link "Reset filters"
 
     expect(page).to have_selector ".card", count: 63
-    expect(page).to have_content "Showing 63 recreation opportunities"
+    expect(page).to have_content "Showing 63 recreation activities"
   end
 
   scenario "user views result with no amenities" do
