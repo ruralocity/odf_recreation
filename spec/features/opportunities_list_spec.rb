@@ -6,7 +6,7 @@ RSpec.feature "Opportunities list", type: :feature do
     FactoryBot.create(:opportunity, name: "Second opportunity")
 
     visit root_path
-    expect(page).to have_content "ODF recreational opportunities"
+    expect(page).to have_content "Recreation at Oregon State Forests"
 
     expect(page).to have_content "First opportunity"
     expect(page).to have_content "Second opportunity"
@@ -18,44 +18,44 @@ RSpec.feature "Opportunities list", type: :feature do
     visit root_path
 
     expect(page).to have_selector ".card", count: 63
-    expect(page).to have_content "Showing 63 opportunities"
+    expect(page).to have_content "Showing 63 recreation opportunities"
 
     check "Clatsop"
     click_button "Filter"
 
     expect(page).to have_selector ".card", count: 14
-    expect(page).to have_content "Showing 14 opportunities"
+    expect(page).to have_content "Showing 14 recreation opportunities"
 
     check "Santiam"
     click_button "Filter"
 
     expect(page).to have_selector ".card", count: 23
-    expect(page).to have_content "Showing 23 opportunities"
+    expect(page).to have_content "Showing 23 recreation opportunities"
 
     uncheck "Santiam"
     uncheck "Clatsop"
     click_button "Filter"
 
     expect(page).to have_selector ".card", count: 63
-    expect(page).to have_content "Showing 63 opportunities"
+    expect(page).to have_content "Showing 63 recreation opportunities"
 
     check "Clatsop"
     check "Hike"
     click_button "Filter"
 
     expect(page).to have_selector ".card", count: 10
-    expect(page).to have_content "Showing 10 opportunities"
+    expect(page).to have_content "Showing 10 recreation opportunities"
 
     check "Day Use"
     click_button "Filter"
 
     expect(page).to have_selector ".card", count: 15
-    expect(page).to have_content "Showing 15 opportunities"
+    expect(page).to have_content "Showing 15 recreation opportunities"
 
     click_link "Reset filters"
 
     expect(page).to have_selector ".card", count: 63
-    expect(page).to have_content "Showing 63 opportunities"
+    expect(page).to have_content "Showing 63 recreation opportunities"
   end
 
   scenario "user views result with no amenities" do
