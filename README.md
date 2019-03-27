@@ -13,22 +13,7 @@ me, but I'm open to collaboration if interest arises.
 
 ## Future ideas
 
-- ~~Add filtering interface to narrow results by state forest or type of
-  opportunity~~ Done!
-- Add geocoding/search by distance
-- Add a map view
-- Parse availability date ranges provided in dataset, so they can be used
-  to filter by date
-- Include images of opportunities/state forests, based on location data, as
-  available through public domain/Creative Commons
-- Handle data updates (the importer is currently create-only), can be
-  deferred until updated data are available
-- Create setup script and instructions to make it easier for others to
-  collaborate on this project
-- Replace filtering UI with client-side code instead of server-rendered
-- Improve usage of amenities data. Possibilities include:
-  - Normalize data; this may be a manual process to correct typos, etc.
-  - List each opportunity's amenities as a list instead of semicolon-delimited
-  - Add filtering by amenity
+See the issue tracker for a list of things I want to do with this project
+at some point.
 
 [odf-data-source]: https://data.oregon.gov/Recreation/ODF-Recreational-Opportunities/ufw2-6prx
