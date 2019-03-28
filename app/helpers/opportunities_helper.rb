@@ -1,4 +1,8 @@
 module OpportunitiesHelper
+  def opportunity_subtitle(opportunity)
+    "#{opportunity.description} at #{opportunity.state_forest_name} State Forest"
+  end
+
   def list_amenities(amenities)
     amenities || "N/A"
   end

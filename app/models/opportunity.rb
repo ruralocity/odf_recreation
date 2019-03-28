@@ -4,6 +4,8 @@ class Opportunity < ApplicationRecord
   has_many :opportunity_types
   has_many :types, through: :opportunity_types
 
+  delegate :name, to: :state_forest, prefix: true
+
   validates :name,
     presence: true,
     uniqueness: true
