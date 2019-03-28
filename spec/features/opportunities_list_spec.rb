@@ -67,4 +67,13 @@ RSpec.feature "Opportunities list", type: :feature do
     expect(page.find(".card", text: "First")).to have_content "Amenities vending machines"
     expect(page.find(".card", text: "Last")).to have_content "Amenities N/A"
   end
+
+  scenario "user wants to see how to get to an opportunity" do
+    FactoryBot.create(:opportunity, latitude: -123.36721, longitude: 45.69061)
+
+    visit root_path
+
+    expect(page).to have_link "Get directions",
+      href: "https://www.google.com/maps/search/?api=1&query=45.69061,-123.36721"
+  end
 end

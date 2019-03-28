@@ -3,7 +3,8 @@
     <h2 class="card-title"><%= opportunity.name %></h2>
     <div class="card-subtitle text-muted">
       <%= opportunity.state_forest.name %> State Forest |
-      <%= opportunity.description %>
+      <%= opportunity.description %> |
+      <%= link_to "Get directions", google_map_url(opportunity), target: :_blank %>
     </div>
     <div class="card-text">
       <div class="row">
