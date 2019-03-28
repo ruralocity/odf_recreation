@@ -23,8 +23,8 @@ class OdfDataImport
       opp.contact_number = attributes["contact_number"]
       opp.description = attributes["description"]
       opp.district = District.find_or_create_by(name: attributes["district"])
-      opp.latitude = attributes["location"]["coordinates"][0]
-      opp.longitude = attributes["location"]["coordinates"][1]
+      opp.latitude = attributes["location"]["coordinates"][1]
+      opp.longitude = attributes["location"]["coordinates"][0]
       opp.number_of_sites = attributes["number_of_sites"]
       opp.overnight_fee = attributes["overnight_fee"]
       opp.season = attributes["season"]

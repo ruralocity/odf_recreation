@@ -74,6 +74,6 @@ RSpec.feature "Opportunities list", type: :feature do
     visit root_path
 
     expect(page).to have_link "Get directions",
-      href: "https://www.google.com/maps/search/?api=1&query=45.69061,-123.36721"
+      href: "https://www.google.com/maps/search/?api=1&query=-123.36721,45.69061"
   end
 end
